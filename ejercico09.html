@@ -1,0 +1,16 @@
+<?php
+/**
+*Clase App
+*/
+require once 'ejercicio09/Usuario.php';
+Class App
+{
+		private $_usuario;
+		function __construct()
+		{
+			echo 'En App';
+			if(isset($ GET) && !empty($_GET)){
+				$this>usuario = nex Usuarios($_GET['nombre'], $_GET['telefono']);
+			}
+		}
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="03_files/default.css">   </head>
+    
+    <body>
+        <div id="header">  
+            <div id="title">
+                Desarrollo web en entorno servidor
+            </div>        
+            <div>
+       
+            </div>
+        </div>
+        <div id="content">
+
+<div id="menu">
+    <h3>Capitulos</h3>
+    <a href="http://localhost/introduccionphp/intro/01">
+        Introducción </a> <br>
+<!--    <a href="http://localhost/introduccionphp/forms/01">
+        Formularios </a> <br>-->
+    <a href="http://localhost/introduccionphp/poo/01">
+        POO  </a> <br>
+    <a href="http://localhost/introduccionphp/mvc/01">
+        MVC </a> <br>
+    <a href="http://localhost/introduccionphp/acl/01">
+        Control de acceso </a>  <br>
+        
+
+        
+        
+    <h4>Apartados:  <br>Introducción</h4><a href="http://localhost/introduccionphp/intro/01">Introducción </a> <br><a href="http://localhost/introduccionphp/intro/02">Variables y tipos </a> <br><a href="http://localhost/introduccionphp/intro/03">Control de flujo </a> <br><a href="http://localhost/introduccionphp/intro/04">Arrays </a> <br><a href="http://localhost/introduccionphp/intro/05">Funciones </a> <br><a href="http://localhost/introduccionphp/intro/06">Formularios </a> <br></div>            
+        <div id="main">
+
+<h2>Constantes y sentencias de control</h2>
+<p>Las constantes se declaran con la palabra reservada "define". </p>
+<p>Las estructuras de control son idénticas al lenguaje C. En caso de duda se 
+    recomienda revisar la documentación oficial.</p>
+<p>Veamos un ejemplo donde se hace uso de constantes y del bucle "for"</p>
+
+
+<div class="php"><code><span style="color: #000000">
+&lt;!DOCTYPE&nbsp;html&gt;
+<br>&lt;html&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;charset="UTF-8"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;ejemplo&nbsp;3&lt;/title&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;
+<br>&lt;/head&gt;
+<br>&lt;body&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php
+<br>&nbsp;&nbsp;&nbsp;&nbsp;define</span><span style="color: #007700">(</span><span style="color: #0000BB">SIZE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;table&nbsp;border=1&gt;"</span><span style="color: #007700">;
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$number&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">SIZE</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">++)&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;tr&nbsp;bgcolor&nbsp;=&nbsp;gainsboro&gt;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;tr&gt;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(</span><span style="color: #0000BB">$column&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$column&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">SIZE</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$column</span><span style="color: #007700">++)&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;td&gt;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"&lt;/td&gt;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$number&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$number&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;/tr&gt;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;/table&gt;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">?&gt;
+<br></span>&lt;/body&gt;
+<br>&lt;/html&gt;</span>
+</code></div><p class="figura"><a href="http://localhost/introduccionphp/ejemplos/ejemplo03.php">Ejemplo 3</a></p>
+
+</div></div></body></html>

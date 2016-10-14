@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="02_files/default.css">   </head>
+    
+    <body>
+        <div id="header">  
+            <div id="title">
+                Desarrollo web en entorno servidor
+            </div>        
+            <div>
+       
+            </div>
+        </div>
+        <div id="content">
+
+<div id="menu">
+    <h3>Capitulos</h3>
+    <a href="http://localhost/introduccionphp/intro/01">
+        Introducción </a> <br>
+<!--    <a href="http://localhost/introduccionphp/forms/01">
+        Formularios </a> <br>-->
+    <a href="http://localhost/introduccionphp/poo/01">
+        POO  </a> <br>
+    <a href="http://localhost/introduccionphp/mvc/01">
+        MVC </a> <br>
+    <a href="http://localhost/introduccionphp/acl/01">
+        Control de acceso </a>  <br>
+        
+
+        
+        
+    <h4>Apartados:  <br>Introducción</h4><a href="http://localhost/introduccionphp/intro/01">Introducción </a> <br><a href="http://localhost/introduccionphp/intro/02">Variables y tipos </a> <br><a href="http://localhost/introduccionphp/intro/03">Control de flujo </a> <br><a href="http://localhost/introduccionphp/intro/04">Arrays </a> <br><a href="http://localhost/introduccionphp/intro/05">Funciones </a> <br><a href="http://localhost/introduccionphp/intro/06">Formularios </a> <br></div>            
+        <div id="main">
+
+<h2>Variables y tipos </h2>
+<p>
+    Los <strong>tipos básicos</strong> son:
+</p>
+<ul>
+    <li>Entero: número entero con signo </li>
+    <li>Flotante: número decimal con signo </li>
+    <li>Booleano: vale true o false </li>
+    <li>Cadena de caracteres: cadena de caracteres delimitada por
+        comillas. Las comillas simples 
+        interpretan el texto literalmente, mientras que las dobles 
+        sustituyen las variables.</li>                </ul>
+
+<p>Los identicadores de <strong>variables</strong> son cadenas alfanumericas precedididas
+    del carácter "$". Se usan sin declaración previa.</p>
+
+<p>Para <strong>comentarios</strong> de unas sólo línea (o parte de ella) se pueden usar 
+    indistintamente // o #. 
+
+    Si se desean comentario de varias líneas, se abren con /* y se cierran con */ 
+</p>
+
+<p>Se imprimen con echo o print:</p>
+<div class="php"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php
+<br></span><span style="color: #FF8000">/*&nbsp;
+<br>&nbsp;*&nbsp;Ejemplo&nbsp;1
+<br>&nbsp;*&nbsp;Uso&nbsp;de&nbsp;variables.&nbsp;
+<br>&nbsp;*&nbsp;Mostrar&nbsp;información&nbsp;con&nbsp;echo&nbsp;y&nbsp;print.
+<br>&nbsp;*&nbsp;Esto&nbsp;es&nbsp;un&nbsp;comentario&nbsp;multilinea
+<br>&nbsp;*/
+<br>//Este&nbsp;de&nbsp;una&nbsp;sóla&nbsp;línea
+<br>#Este&nbsp;también&nbsp;pero&nbsp;es&nbsp;menos&nbsp;usado
+<br>
+<br></span><span style="color: #0000BB">$variable&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5&nbsp;</span><span style="color: #007700">;
+<br>echo&nbsp;</span><span style="color: #DD0000">'Nuestra&nbsp;&nbsp;variable&nbsp;vale:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$variable&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&lt;br&gt;'</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//Con&nbsp;puntos
+<br></span><span style="color: #007700">print&nbsp;</span><span style="color: #DD0000">'Nuestra&nbsp;&nbsp;variable&nbsp;vale:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$variable&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&lt;br&gt;'</span><span style="color: #007700">;</span><span style="color: #FF8000">//Con&nbsp;puntos
+<br>
+<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'Nuestra&nbsp;&nbsp;variable&nbsp;vale:&nbsp;'&nbsp;</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$variable&nbsp;</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&lt;br&gt;&lt;hr&gt;'</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//Con&nbsp;comas
+<br>
+<br></span><span style="color: #0000BB">$anInteger&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$aFloat&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">3.1416</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$aString&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Hola&nbsp;"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$anotherString&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'mundo'</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$aBoolean&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;recomendación&nbsp;Zend,&nbsp;en&nbsp;minúsculas.
+<br></span><span style="color: #0000BB">$anotherBoolean&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+<br>print(</span><span style="color: #0000BB">$aString&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$anotherString&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&lt;hr&gt;'</span><span style="color: #007700">);
+<br>
+<br></span><span style="color: #FF8000">//podemos&nbsp;usar&nbsp;texto&nbsp;con&nbsp;comillas&nbsp;simples&nbsp;y&nbsp;dobles.
+<br>//más&nbsp;habitual&nbsp;las&nbsp;simples&nbsp;y&nbsp;dejamos&nbsp;las&nbsp;dobles&nbsp;para&nbsp;el&nbsp;html
+<br>//sin&nbsp;embargo&nbsp;las&nbsp;dobles&nbsp;permiten&nbsp;embeber&nbsp;variables&nbsp;en&nbsp;cadenas&nbsp;de&nbsp;texto:
+<br></span><span style="color: #007700">echo&nbsp;&nbsp;</span><span style="color: #DD0000">"Un&nbsp;numero&nbsp;entero&nbsp;es&nbsp;</span><span style="color: #0000BB">$anInteger</span><span style="color: #DD0000">&nbsp;&lt;br&gt;"</span><span style="color: #007700">;
+<br>echo&nbsp;</span><span style="color: #DD0000">'Un&nbsp;numero&nbsp;entero&nbsp;es&nbsp;$anInteger&nbsp;&lt;br&gt;'</span><span style="color: #007700">;
+<br>
+<br></span><span style="color: #FF8000">/*&nbsp;
+<br>&nbsp;*&nbsp;Nosotros&nbsp;usaremos&nbsp;el&nbsp;standar&nbsp;de&nbsp;codificación&nbsp;de&nbsp;Zend.&nbsp;
+<br>&nbsp;*&nbsp;Iremos&nbsp;viendo&nbsp;sus&nbsp;recomendaciones:
+<br>&nbsp;*&nbsp;Variables&nbsp;con&nbsp;estilo&nbsp;"$camelCase".
+<br>&nbsp;*&nbsp;Las&nbsp;concatenaciones&nbsp;con&nbsp;espacios&nbsp;a&nbsp;ambos&nbsp;lados&nbsp;del&nbsp;punto
+<br>&nbsp;*/
+<br>
+<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'Una&nbsp;variable&nbsp;booleana&nbsp;es&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$aBoolean&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;y&nbsp;otra&nbsp;es&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$anotherBoolean</span><span style="color: #007700">;
+<br>
+<br></span><span style="color: #FF8000">//&nbsp;ojo!!&nbsp;echo&nbsp;no&nbsp;muestra&nbsp;los&nbsp;"false".
+<br></span>
+</span>
+</code></div><p class="figura"><a href="http://localhost/introduccionphp/ejemplos/ejemplo02.php">Ejemplo 2</a></p>
+
+
+
+</div></div></body></html>

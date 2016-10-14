@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="04_files/default.css">   </head>
+    
+    <body>
+        <div id="header">  
+            <div id="title">
+                Desarrollo web en entorno servidor
+            </div>        
+            <div>
+       
+            </div>
+        </div>
+        <div id="content">
+
+<div id="menu">
+    <h3>Capitulos</h3>
+    <a href="http://localhost/introduccionphp/intro/01">
+        Introducción </a> <br>
+<!--    <a href="http://localhost/introduccionphp/forms/01">
+        Formularios </a> <br>-->
+    <a href="http://localhost/introduccionphp/poo/01">
+        POO  </a> <br>
+    <a href="http://localhost/introduccionphp/mvc/01">
+        MVC </a> <br>
+    <a href="http://localhost/introduccionphp/acl/01">
+        Control de acceso </a>  <br>
+        
+
+        
+        
+    <h4>Apartados:  <br>Introducción</h4><a href="http://localhost/introduccionphp/intro/01">Introducción </a> <br><a href="http://localhost/introduccionphp/intro/02">Variables y tipos </a> <br><a href="http://localhost/introduccionphp/intro/03">Control de flujo </a> <br><a href="http://localhost/introduccionphp/intro/04">Arrays </a> <br><a href="http://localhost/introduccionphp/intro/05">Funciones </a> <br><a href="http://localhost/introduccionphp/intro/06">Formularios </a> <br></div>            
+        <div id="main">
+
+<h2>Arrays</h2>
+<p>Los arrays son un tipo de datos que no hemos tratado al inicio porque su 
+    tratamiento es algo más complejo que los tipos básicos. No obstante su 
+    conocimiento y dominio resultan fundamentales para el uso común del lenguaje.
+    Un array es una colección de datos. </p>
+
+<p>En el lenguaje PHP los datos pueden ser del
+    mismo tipo o no, pueden incluso ser otros arrays u objetos.</p>
+
+<p>Según la forma de acceder a cada uno de los datos hablamos de arrays 
+    ordeandos u asociativos</p>
+<h3>Arrays ordenados</h3>
+<p>Un array ordenado es una colección de datos donde cada uno de ellos es referenciado
+    por la posición que ocupa en la misma.</p>
+<p>Los arrays pueden ser inicializados de varias maneras distintas. Veamos: </p>
+
+<ul>
+    <li> En la declaración de la variable. Los dadtos van entre paréntesis y 
+        separados por comas: <br>
+        <div class="php"><code><span style="color: #000000">
+&lt;!DOCTYPE&nbsp;html&gt;
+<br>&lt;html&gt;&lt;head&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;charset="UTF-8"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;ejemplo&nbsp;4&lt;/title&gt;
+<br>&lt;/head&gt;&lt;body&gt;
+<br><span style="color: #0000BB">&lt;?php
+<br>
+<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Array&nbsp;ordenado&nbsp;inicializado&nbsp;en&nbsp;la&nbsp;declaración&nbsp;&lt;hr&gt;"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$array1&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">5</span><span style="color: #007700">,</span><span style="color: #DD0000">"hola"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2.3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"elemento5"</span><span style="color: #007700">);
+<br></span><span style="color: #FF8000">//accedemos&nbsp;a&nbsp;los&nbsp;elementos&nbsp;del&nbsp;array&nbsp;con&nbsp;corchetes&nbsp;y&nbsp;su&nbsp;posición.
+<br></span><span style="color: #0000BB">$elemento0&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$array1</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">];
+<br>echo&nbsp;</span><span style="color: #DD0000">"El&nbsp;elemento&nbsp;1&nbsp;es&nbsp;</span><span style="color: #0000BB">$elemento0</span><span style="color: #DD0000">&nbsp;y&nbsp;también&nbsp;</span><span style="color: #0000BB">$array1</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]</span><span style="color: #DD0000">"</span><span style="color: #007700">;
+<br>echo&nbsp;</span><span style="color: #DD0000">"&lt;hr&gt;&nbsp;Podemos&nbsp;ver&nbsp;el&nbsp;contenido&nbsp;con&nbsp;var_dump&nbsp;o&nbsp;print_r"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$array1</span><span style="color: #007700">);
+<br></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$array1</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//print_r&nbsp;puede&nbsp;ser&nbsp;más&nbsp;incomodo&nbsp;salvo&nbsp;que&nbsp;usemos&nbsp;&lt;pre&gt;&lt;/pre&gt;
+<br>
+<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"&lt;pre&gt;"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$array1</span><span style="color: #007700">);&nbsp;
+<br>echo&nbsp;</span><span style="color: #DD0000">"&lt;/pre&gt;"</span><span style="color: #007700">;
+<br>
+<br></span><span style="color: #FF8000">//la&nbsp;podemos&nbsp;recorrer&nbsp;con&nbsp;el&nbsp;bucle&nbsp;foreach&nbsp;de&nbsp;dos&nbsp;maneras:
+<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"&lt;hr&gt;&nbsp;Recorrido&nbsp;mediante&nbsp;bucle&nbsp;foreach&nbsp;simple&nbsp;&lt;br&gt;"</span><span style="color: #007700">;
+<br>foreach&nbsp;(</span><span style="color: #0000BB">$array1&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$element</span><span style="color: #007700">){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$element&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&lt;br&gt;'</span><span style="color: #007700">;
+<br>}
+<br></span><span style="color: #FF8000">//foreach&nbsp;clave-&gt;elemento
+<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"&lt;hr&gt;&nbsp;Recorrido&nbsp;mediante&nbsp;bucle&nbsp;foreach&nbsp;con&nbsp;posicion-&gt;elemento&nbsp;&lt;br&gt;"</span><span style="color: #007700">;
+<br>foreach&nbsp;(</span><span style="color: #0000BB">$array1&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$position</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$element</span><span style="color: #007700">){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$position&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">":&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$element&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&lt;br&gt;'</span><span style="color: #007700">;
+<br>}
+<br></span><span style="color: #0000BB">?&gt;
+<br></span>&lt;/body&gt;&lt;/html&gt;</span>
+</code></div><p class="figura"><a href="http://localhost/introduccionphp/ejemplos/ejemplo04.php">Ejemplo 4</a></p>
+    </li>
+    <li> En cualquier momento podemos añadir nuevos elementos indicando o no su 
+        posición. Internamente se lleva cuenta del último elemento añadido para 
+        que los nuevos ocupen las siguientes posiciones. <br>
+        <div class="php"><code><span style="color: #000000">
+&lt;!DOCTYPE&nbsp;html&gt;
+<br>&lt;html&gt;&lt;head&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;charset="UTF-8"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;ejemplo&nbsp;5&lt;/title&gt;
+<br>&lt;/head&gt;&lt;body&gt;
+<br><span style="color: #0000BB">&lt;?php
+<br></span><span style="color: #FF8000">//inicializamos
+<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Array&nbsp;ordenado&nbsp;inicializado&nbsp;elemento&nbsp;por&nbsp;elemento&nbsp;&lt;hr&gt;"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$array1</span><span style="color: #007700">[]=</span><span style="color: #DD0000">"elemento&nbsp;0&nbsp;porque&nbsp;estába&nbsp;vacía"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$array1</span><span style="color: #007700">[]=</span><span style="color: #DD0000">"elemento&nbsp;1&nbsp;supongo"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$array1</span><span style="color: #007700">[</span><span style="color: #0000BB">6</span><span style="color: #007700">]=</span><span style="color: #DD0000">"elemento&nbsp;6&nbsp;porque&nbsp;lo&nbsp;digo&nbsp;yo"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$array1</span><span style="color: #007700">[</span><span style="color: #0000BB">200</span><span style="color: #007700">]=</span><span style="color: #DD0000">"elemento&nbsp;200&nbsp;porque&nbsp;lo&nbsp;digo&nbsp;yo&nbsp;tb!"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$array1</span><span style="color: #007700">[]=</span><span style="color: #DD0000">"elemento&nbsp;201???&nbsp;Lo&nbsp;veremos"</span><span style="color: #007700">;
+<br>
+<br></span><span style="color: #FF8000">//volcamos&nbsp;la&nbsp;variable&nbsp;para&nbsp;estudiarla&nbsp;y&nbsp;depurar&nbsp;nuestro&nbsp;código.&nbsp;
+<br>//Con&nbsp;var_dump
+<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$array1</span><span style="color: #007700">);
+<br></span><span style="color: #FF8000">//O&nbsp;con&nbsp;print_r
+<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"&lt;pre&gt;"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$array1</span><span style="color: #007700">);&nbsp;
+<br>echo&nbsp;</span><span style="color: #DD0000">"&lt;/pre&gt;"</span><span style="color: #007700">;
+<br>
+<br></span><span style="color: #FF8000">//la&nbsp;podemos&nbsp;recorrer&nbsp;con&nbsp;el&nbsp;bucle&nbsp;foreach&nbsp;de&nbsp;dos&nbsp;maneras:
+<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"&lt;hr&gt;&nbsp;Recorrido&nbsp;mediante&nbsp;bucle&nbsp;foreach&nbsp;simple&nbsp;&lt;br&gt;"</span><span style="color: #007700">;
+<br>foreach&nbsp;(</span><span style="color: #0000BB">$array1&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$element</span><span style="color: #007700">){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$element&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&lt;br&gt;'</span><span style="color: #007700">;
+<br>}
+<br></span><span style="color: #FF8000">//foreach&nbsp;clave-&gt;elemento
+<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"&lt;hr&gt;&nbsp;Recorrido&nbsp;mediante&nbsp;bucle&nbsp;foreach&nbsp;con&nbsp;posicion-&gt;elemento&nbsp;&lt;br&gt;"</span><span style="color: #007700">;
+<br>foreach&nbsp;(</span><span style="color: #0000BB">$array1&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$position</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$element</span><span style="color: #007700">){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$position&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">":&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$element&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&lt;br&gt;'</span><span style="color: #007700">;
+<br>}
+<br></span><span style="color: #0000BB">?&gt;
+<br></span>&lt;/body&gt;&lt;/html&gt;</span>
+</code></div><p class="figura"><a href="http://localhost/introduccionphp/ejemplos/ejemplo05.php">Ejemplo 5</a></p>
+    </li>
+</ul>
+
+<h3>Arrays asociativos</h3>
+<p>Los arrays asociativos usan una etiqueta en lugar del número de posición.</p>
+<div class="php"><code><span style="color: #000000">
+&lt;!DOCTYPE&nbsp;html&gt;
+<br>&lt;html&gt;&lt;head&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;charset="UTF-8"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;ejemplo&nbsp;6&lt;/title&gt;
+<br>&lt;/head&gt;&lt;body&gt;
+<br><span style="color: #0000BB">&lt;?php
+<br></span><span style="color: #FF8000">//inicializamos
+<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Array&nbsp;ordenado&nbsp;inicializado&nbsp;en&nbsp;la&nbsp;declaración&nbsp;&lt;hr&gt;"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$array1&nbsp;</span><span style="color: #007700">=&nbsp;array&nbsp;(
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'nombre'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Manuel'</span><span style="color: #007700">,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'apellido'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'García&nbsp;López'</span><span style="color: #007700">,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'edad'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">23
+<br></span><span style="color: #007700">);
+<br>
+<br>
+<br></span><span style="color: #FF8000">//foreach&nbsp;clave-&gt;elemento
+<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Recorrido&nbsp;mediante&nbsp;bucle&nbsp;foreach&nbsp;con&nbsp;posicion-&gt;elemento&nbsp;&lt;br&gt;"</span><span style="color: #007700">;
+<br>foreach&nbsp;(</span><span style="color: #0000BB">$array1&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$position</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$element</span><span style="color: #007700">){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$position&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">":&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$element&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&lt;br&gt;'</span><span style="color: #007700">;
+<br>}
+<br>echo&nbsp;</span><span style="color: #DD0000">'añadimos&nbsp;un&nbsp;elemento&nbsp;más&nbsp;y&nbsp;hacemos&nbsp;un&nbsp;volcado:&nbsp;&lt;br&gt;'</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$array1</span><span style="color: #007700">[</span><span style="color: #DD0000">'nacionalidad'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'Española'</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$array1</span><span style="color: #007700">);
+<br></span><span style="color: #0000BB">?&gt;
+<br></span>&lt;/body&gt;&lt;/html&gt;</span>
+</code></div><p class="figura"><a href="http://localhost/introduccionphp/ejemplos/ejemplo06.php">Ejemplo 6</a></p>
+
+<h3>Arrays de dos dimensiones</h3>
+<p> Los elementos de un array pueden ser nuevos arrays. Esto permite recoger el 
+    contenido de tablas en arrays de dos dimensiones donde cada elemento del 
+    array principal es un array.</p>
+<p> Los arrays de dos dimensiones pueden ser ordenados, asociativos o una mezcla
+    de ambos</p>
+    <div class="php"><code><span style="color: #000000">
+&lt;!DOCTYPE&nbsp;html&gt;
+<br>&lt;html&gt;&lt;head&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;charset="UTF-8"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;ejemplo&nbsp;7&lt;/title&gt;
+<br>&lt;/head&gt;&lt;body&gt;
+<br><span style="color: #0000BB">&lt;?php
+<br></span><span style="color: #FF8000">//inicializamos
+<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'Array&nbsp;ordenado&nbsp;doble&nbsp;inicializado&nbsp;en&nbsp;la&nbsp;declaración&nbsp;&lt;hr&gt;'</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$ciudades&nbsp;</span><span style="color: #007700">=&nbsp;array&nbsp;(
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'Zaragoza'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'poblacion'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">700000</span><span style="color: #007700">,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'gentilicio'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Zaragozano'
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">),&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'Madrid'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'poblacion'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">3000000</span><span style="color: #007700">,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'gentilicio'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Madrileño'
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">),&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'Barcelona'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'poblacion'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">3000000</span><span style="color: #007700">,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'gentilicio'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Barcelonés'
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">),&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'Bilbao'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'poblacion'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">500000</span><span style="color: #007700">,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'gentilicio'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Bilbaino'
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">),&nbsp;
+<br>);
+<br></span><span style="color: #0000BB">?&gt;
+<br></span>
+<br>Recorrido&nbsp;mediante&nbsp;bucle&nbsp;foreach&nbsp;doble&nbsp;&lt;br&gt;
+<br>&lt;table&gt;
+<br>&lt;tr&gt;&lt;td&gt;Ciudad&lt;/td&gt;&lt;td&gt;Población&lt;/td&gt;&lt;td&gt;Gentilicio&lt;/td&gt;&lt;/tr&gt;
+<br><span style="color: #0000BB">&lt;?php
+<br></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">$ciudades&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$ciudad</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$datos</span><span style="color: #007700">){&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'&lt;tr&gt;'</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;td&gt;&nbsp;</span><span style="color: #0000BB">$ciudad</span><span style="color: #DD0000">&nbsp;&lt;/td&gt;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: #0000BB">$datos&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$clave</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$dato</span><span style="color: #007700">){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;td&gt;&nbsp;</span><span style="color: #0000BB">$dato</span><span style="color: #DD0000">&nbsp;&lt;/td&gt;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'&lt;/tr&gt;'</span><span style="color: #007700">;
+<br>}
+<br></span><span style="color: #0000BB">?&gt;
+<br></span>&lt;/table&gt;
+<br>&lt;/body&gt;&lt;/html&gt;</span>
+</code></div><p class="figura"><a href="http://localhost/introduccionphp/ejemplos/ejemplo07.php">Ejemplo 7</a></p>
+
+    
+</div></div></body></html>

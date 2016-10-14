@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="05_files/default.css">   </head>
+    
+    <body>
+        <div id="header">  
+            <div id="title">
+                Desarrollo web en entorno servidor
+            </div>        
+            <div>
+       
+            </div>
+        </div>
+        <div id="content">
+
+<div id="menu">
+    <h3>Capitulos</h3>
+    <a href="http://localhost/introduccionphp/intro/01">
+        Introducción </a> <br>
+<!--    <a href="http://localhost/introduccionphp/forms/01">
+        Formularios </a> <br>-->
+    <a href="http://localhost/introduccionphp/poo/01">
+        POO  </a> <br>
+    <a href="http://localhost/introduccionphp/mvc/01">
+        MVC </a> <br>
+    <a href="http://localhost/introduccionphp/acl/01">
+        Control de acceso </a>  <br>
+        
+
+        
+        
+    <h4>Apartados:  <br>Introducción</h4><a href="http://localhost/introduccionphp/intro/01">Introducción </a> <br><a href="http://localhost/introduccionphp/intro/02">Variables y tipos </a> <br><a href="http://localhost/introduccionphp/intro/03">Control de flujo </a> <br><a href="http://localhost/introduccionphp/intro/04">Arrays </a> <br><a href="http://localhost/introduccionphp/intro/05">Funciones </a> <br><a href="http://localhost/introduccionphp/intro/06">Formularios </a> <br></div>            
+        <div id="main">
+
+    <h2>Funciones </h2>
+    <ul>
+        <li>
+            La palabra reservada para funciones es <strong>function</strong>. 
+        </li>
+        <li>
+            Para devolver valores usamos <strong>return</strong>.    
+        </li>
+        <li>
+            Los argumentos se pasan por     referencia salvo que se use el operador 
+            ampersand (<strong>&amp;</strong>).   
+        </li>
+        <li>
+            Podemos definir valores por defecto asignando un valor en la 
+            declaración de la función.
+        </li>
+    </ul>
+
+    <p>
+        Veamos un ejemplo donde podemos entender cada una de las cuestiones 
+        anteriores:
+    </p>
+
+
+    <div class="php"><code><span style="color: #000000">
+&lt;!DOCTYPE&nbsp;html&gt;
+<br>&lt;html&gt;&lt;head&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;charset="UTF-8"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;ejemplo&nbsp;7&lt;/title&gt;
+<br>&lt;/head&gt;&lt;body&gt;
+<br><span style="color: #0000BB">&lt;?php
+<br></span><span style="color: #FF8000">//función&nbsp;que&nbsp;devuelve&nbsp;un&nbsp;valor:
+<br>//lo&nbsp;normal&nbsp;paso&nbsp;por&nbsp;valor.
+<br></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">superficie</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$altura</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//los&nbsp;parámetros&nbsp;se&nbsp;declaran&nbsp;como&nbsp;se&nbsp;inidica
+<br>&nbsp;&nbsp;&nbsp;&nbsp;//podemos&nbsp;incluir&nbsp;las&nbsp;sentencias&nbsp;necesarias
+<br>&nbsp;&nbsp;&nbsp;&nbsp;//usamos&nbsp;return&nbsp;si&nbsp;queremos&nbsp;que&nbsp;la&nbsp;función&nbsp;devuelva&nbsp;un&nbsp;valor
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">$base&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">$altura</span><span style="color: #007700">;
+<br>}
+<br>
+<br></span><span style="color: #FF8000">//paso&nbsp;por&nbsp;referencia.&nbsp;El&nbsp;argumento&nbsp;pasado&nbsp;puede&nbsp;ser&nbsp;actualizado
+<br>//además&nbsp;en&nbsp;este&nbsp;ejemplo&nbsp;no&nbsp;har&nbsp;retur:&nbsp;no&nbsp;devuelve&nbsp;nada.
+<br></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">escala</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$base</span><span style="color: #007700">,&nbsp;&amp;</span><span style="color: #0000BB">$altura</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$escala</span><span style="color: #007700">=</span><span style="color: #0000BB">2</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$base&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$base&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">$escala</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$altura&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$altura&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">$escala</span><span style="color: #007700">;
+<br>}
+<br></span><span style="color: #FF8000">//&nbsp;otra&nbsp;función&nbsp;que&nbsp;no&nbsp;devuelve&nbsp;nada
+<br></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">rectangulo&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$altura</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Las&nbsp;medidas&nbsp;de&nbsp;nuestro&nbsp;rectángulo&nbsp;son&nbsp;</span><span style="color: #0000BB">$base</span><span style="color: #DD0000">&nbsp;x&nbsp;</span><span style="color: #0000BB">$altura</span><span style="color: #DD0000">"</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$base&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$base&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;
+<br>}
+<br></span><span style="color: #FF8000">//vamos&nbsp;a&nbsp;usar&nbsp;las&nbsp;funciones:
+<br></span><span style="color: #0000BB">$base&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">6</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$altura&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">;
+<br>
+<br>echo&nbsp;</span><span style="color: #DD0000">"Nuestro&nbsp;rectángulo:&nbsp;"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">rectangulo</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$altura</span><span style="color: #007700">);
+<br>echo&nbsp;</span><span style="color: #DD0000">"&lt;br&gt;"</span><span style="color: #007700">;
+<br>
+<br></span><span style="color: #FF8000">//escalamos&nbsp;a&nbsp;la&nbsp;mitad
+<br></span><span style="color: #0000BB">escala</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$altura</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.5</span><span style="color: #007700">);
+<br>
+<br>echo&nbsp;</span><span style="color: #DD0000">"Pero&nbsp;ahora:&nbsp;&nbsp;"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">rectangulo</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$altura</span><span style="color: #007700">);
+<br>echo&nbsp;</span><span style="color: #DD0000">"&lt;br&gt;"</span><span style="color: #007700">;
+<br>
+<br></span><span style="color: #FF8000">//escalamos&nbsp;por&nbsp;defecto
+<br></span><span style="color: #0000BB">escala</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$altura</span><span style="color: #007700">);
+<br>
+<br>echo&nbsp;</span><span style="color: #DD0000">"Y&nbsp;de&nbsp;nuevo:&nbsp;&nbsp;"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">rectangulo</span><span style="color: #007700">(</span><span style="color: #0000BB">$base</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$altura</span><span style="color: #007700">);
+<br>echo&nbsp;</span><span style="color: #DD0000">"&lt;br&gt;"</span><span style="color: #007700">;
+<br>
+<br>
+<br></span><span style="color: #0000BB">?&gt;
+<br></span>
+<br>&lt;/body&gt;&lt;/html&gt;</span>
+</code></div><p class="figura"><a href="http://localhost/introduccionphp/ejemplos/ejemplo08.php">Ejemplo 8</a></p>
+
+
+
+</div></div></body></html>

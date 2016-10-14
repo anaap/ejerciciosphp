@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="introduccionphp_files/default.css">   </head>
+    
+    <body>
+        <div id="header">  
+            <div id="title">
+                Desarrollo web en entorno servidor
+            </div>        
+            <div>
+       
+            </div>
+        </div>
+        <div id="content">
+
+<div id="menu">
+    <h3>Capitulos</h3>
+    <a href="http://localhost/introduccionphp/intro/01">
+        Introducción </a> <br>
+<!--    <a href="http://localhost/introduccionphp/forms/01">
+        Formularios </a> <br>-->
+    <a href="http://localhost/introduccionphp/poo/01">
+        POO  </a> <br>
+    <a href="http://localhost/introduccionphp/mvc/01">
+        MVC </a> <br>
+    <a href="http://localhost/introduccionphp/acl/01">
+        Control de acceso </a>  <br>
+        
+
+        
+        
+    <h4>Apartados:  <br>Introducción</h4><a href="http://localhost/introduccionphp/intro/01">Introducción </a> <br><a href="http://localhost/introduccionphp/intro/02">Variables y tipos </a> <br><a href="http://localhost/introduccionphp/intro/03">Control de flujo </a> <br><a href="http://localhost/introduccionphp/intro/04">Arrays </a> <br><a href="http://localhost/introduccionphp/intro/05">Funciones </a> <br><a href="http://localhost/introduccionphp/intro/06">Formularios </a> <br></div>            
+        <div id="main">
+
+
+<h1>Introducción al lenguaje PHP</h1>
+<h2>
+  Declaración de intenciones 
+</h2>
+<p>El objetivo esta documentación es ayudar al aprendizaje rápido del lenguaje 
+    PHP por parte de estudiantes de 2º curso de Desarrollo de Apliaciones Web. 
+    No obstante pueden ser útiles por aquellos que ya conozcan otros lenguajes 
+    de programación como JAVA, C++ o C#.
+    Por este motivo se omitirá mucho contenido teórico sobre lo que es un 
+    lenguaje de programación orientado a objetos.
+    Igualmente, las explicaciones de sintaxis serán mínimas, pues la sintaxis es
+    muy parecida a los citadso lenguajes.</p>
+
+
+<p>Para completar información respecto a lo que aquí se cuenta el mejor sitio
+    es la documentación oficial  <a href="http://php.net/manual/es/"> php.net/manual/es/ </a>
+</p>
+
+
+
+<h2>Operadores</h2>
+<p>Los operadores son en general iguales a C o Java. Podemos 
+    revisar la documetación oficial en: <br>
+ <a href="http://php.net/manual/es/language.operators.php">
+    http://php.net/manual/es/language.operators.php</a></p>
+    
+    <p> No obstante vamos a remarar algunos casos especiales</p>
+    <ul>
+        <li>El operador "." sirve para concatenar textos.</li>
+        <li>Además de los comparadores == y != existen los operadores === y !==.
+        El operador === devuelve true si el valor y el tipo de 
+        datos son iguales. El operador !== devuelve true si el valor o el tipo
+        de datos son distintos.
+        </li>
+        <li> De manera similar al operador "+=" Tenemos el operador ".="</li>
+        
+        
+    </ul>
+    <div class="php"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php
+<br>$n1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"5"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$n2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$comparacion1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$n1&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">$n2</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//true
+<br></span><span style="color: #0000BB">$comparacion2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$n1&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">$n2</span><span style="color: #007700">;</span><span style="color: #FF8000">//false
+<br>
+<br>
+<br></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Hello&nbsp;"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"World!"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;ahora&nbsp;$b&nbsp;contiene&nbsp;"Hello&nbsp;World!"
+<br>
+<br></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Hello&nbsp;"</span><span style="color: #007700">;
+<br></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">.=&nbsp;</span><span style="color: #DD0000">"World!"</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;ahora&nbsp;$a&nbsp;contiene&nbsp;"Hello&nbsp;World!"
+<br></span>
+</span>
+</code></div><p class="figura"><a href="http://10.2.25.100/ejemplos/ejemplo00.php">Ejemplo 0</a></p>
+
+
+<p> Este es un documento mixto HTML-PHP donde el código PHP se inserta 
+    dentro del HTML mediante su correspondiente etiquetado.</p>
+
+<code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;mi_codigo_php&nbsp;?&gt;</span>
+</span>
+</code>
+<p>Los ficheros cuyo contenido es 100% php requieren la etiqueta de 
+    apertura <em><code><span style="color: #000000">
+'&lt;?php'</span>
+</code></em> pero no la de
+    cierre. <em> <code><span style="color: #000000">
+'?&gt;'</span>
+</code></em> </p>
+
+
+
+<h2>Configuración PHP</h2>
+<p>La configuración de php está registrada en el fichero php.ini y
+    puede ser consultada con la función phpinfo()</p>
+
+<div class="php"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php
+<br>phpinfo</span><span style="color: #007700">();</span>
+</span>
+</code></div><p class="figura"><a href="http://10.2.25.100/ejemplos/ejemplo01.php">Ejemplo 1</a></p>
+</div></div></body></html>

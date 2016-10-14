@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="06_files/default.css">   </head>
+    
+    <body>
+        <div id="header">  
+            <div id="title">
+                Desarrollo web en entorno servidor
+            </div>        
+            <div>
+       
+            </div>
+        </div>
+        <div id="content">
+
+<div id="menu">
+    <h3>Capitulos</h3>
+    <a href="http://localhost/introduccionphp/intro/01">
+        Introducción </a> <br>
+<!--    <a href="http://localhost/introduccionphp/forms/01">
+        Formularios </a> <br>-->
+    <a href="http://localhost/introduccionphp/poo/01">
+        POO  </a> <br>
+    <a href="http://localhost/introduccionphp/mvc/01">
+        MVC </a> <br>
+    <a href="http://localhost/introduccionphp/acl/01">
+        Control de acceso </a>  <br>
+        
+
+        
+        
+    <h4>Apartados:  <br>Introducción</h4><a href="http://localhost/introduccionphp/intro/01">Introducción </a> <br><a href="http://localhost/introduccionphp/intro/02">Variables y tipos </a> <br><a href="http://localhost/introduccionphp/intro/03">Control de flujo </a> <br><a href="http://localhost/introduccionphp/intro/04">Arrays </a> <br><a href="http://localhost/introduccionphp/intro/05">Funciones </a> <br><a href="http://localhost/introduccionphp/intro/06">Formularios </a> <br></div>            
+        <div id="main">
+
+    <h2>Formularios y variables superglobales</h2>
+
+    <p>Un elemento fundamental para conseguir la interactividad de un sitio web, 
+        para poder enviar información desde el cliente, el navegador, hasta el 
+        servidor son los formularios. </p>
+
+    <p>Un poco de HTML. Un formulario se construye con la etiqueta form. 
+        El atributo action indica qué  página web debe recibir los datos 
+        enviados desde el formulario. El atributo method especifica qué método 
+        de conexión se realiza.</p>
+
+    <p>El protocolo HTTP establece varios métodos para solicitar una página. Aunque
+        el juego de métodos posibles incluye PUT, DELETE o PATCH, un formulario 
+        puede usar el método get (por defecto) y el método post.</p>
+
+    <h3>GET o POST</h3>
+    <p>
+        El método GET añade los argumentos a la URL de envío. No es adecuado para
+        enviar datos sensibles como contraseñas pero tiene la ventaja de que los
+        envíos pueden ser enlazados.
+        Vamos a ver el mismo ejemplo con ambos métodos.
+    </p>
+
+    <h3>Variables superglobales</h3>
+    <p>Las variables superglobales son accesibles desde cualquier lugar. Su número 
+        no es muy amplio pero vamos a ceñirnos a las que de momento nos interesan</p>
+    <ul>
+        <li>$_SERVER. Recoge información sobre el servidor, el script que estámos 
+            ejecutando,.... No vamos a abundar en ello pero puede ser muy útil.</li>
+        <li>$_GET. Recoge la información enviada mediante el método GET.</li>
+        <li>$_POST. Recoge la información enviada mediante el método POST.</li>
+        <li>$_REQUEST. Recoge la información enviada mediante POST o GET 
+            indistintamente. Personalmente prefiero usar las anteriores.</li>
+    </ul>
+
+    <h3>Ejemplos</h3>
+    <h4>Formulario 1, método GET</h4>
+    <div class="php"><code><span style="color: #000000">
+&lt;!DOCTYPE&nbsp;html&gt;
+<br>&lt;html&gt;&lt;head&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;charset="UTF-8"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;ejemplo&nbsp;7&lt;/title&gt;
+<br>&lt;/head&gt;&lt;body&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Nuestro&nbsp;primer&nbsp;formulario&lt;/h2&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;form&nbsp;method="get"&nbsp;action="ejemplo09b.php"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;Nombre&lt;/label&gt;&lt;input&nbsp;type="text"&nbsp;value=""&nbsp;name="nombre"&gt;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;Apellidos&lt;/label&gt;&lt;input&nbsp;type="text"&nbsp;value=""&nbsp;name="apellidos"&gt;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="submit"&nbsp;value="enviar"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/form&gt;
+<br>&lt;/body&gt;&lt;/html&gt;</span>
+</code></div><p class="figura"><a href="http://localhost/introduccionphp/ejemplos/ejemplo09.php">Ejemplo 9</a></p>    <div class="php"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php
+<br></span><span style="color: #FF8000">//aprobechamos&nbsp;para&nbsp;ver&nbsp;un&nbsp;par&nbsp;de&nbsp;funciones&nbsp;para&nbsp;el&nbsp;manejo&nbsp;de&nbsp;variables.
+<br>//isset&nbsp;comprueba&nbsp;si&nbsp;una&nbsp;variable&nbsp;está&nbsp;definida&nbsp;y&nbsp;no&nbsp;es&nbsp;null
+<br>//empty&nbsp;comprueba&nbsp;si&nbsp;una&nbsp;variable&nbsp;contiene&nbsp;algún&nbsp;valor&nbsp;distinto&nbsp;de&nbsp;0&nbsp;o&nbsp;false
+<br></span><span style="color: #007700">if(isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;!empty(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">)){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Recibido!!&nbsp;Mira&nbsp;la&nbsp;URL&nbsp;en&nbsp;tu&nbsp;navegador&lt;hr&gt;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Bienvenido&nbsp;</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #0000BB">nombre</span><span style="color: #007700">]</span><span style="color: #DD0000">&nbsp;</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #0000BB">apellidos</span><span style="color: #007700">]</span><span style="color: #DD0000">"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//var_dump&nbsp;nos&nbsp;puede&nbsp;ayudar&nbsp;a&nbsp;entender&nbsp;lo&nbsp;que&nbsp;hemos&nbsp;recibido
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">);
+<br>}
+<br>&nbsp;else&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"No&nbsp;hemos&nbsp;recibido&nbsp;nada!"</span><span style="color: #007700">;
+<br>}
+<br></span>
+</span>
+</code></div><p class="figura"><a href="http://localhost/introduccionphp/ejemplos/ejemplo09b.php">Ejemplo 9b</a></p>
+    <h4>Formulario 2. POST y tipos de inputs.</h4>
+    <p>Veamos en este ejemplo como usar el resto de inputs habituales. Los input deben
+        tener todos nombres distintos, en caso contrario sólo recibiremos el valor 
+        del último. Existe la opción de usar los corchetes para recibir los datos en
+        un array, observa el ejemplo.</p>
+    
+    <p>HTML5 define algunos inputs nuevos pero no vamos a usarlos en estos ejemplos.</p>
+    <p>
+        Vamos a usar el método POST, como vemos la URL no recoge los datos enviados.</p>
+    <div class="php"><code><span style="color: #000000">
+&lt;!DOCTYPE&nbsp;html&gt;
+<br>&lt;html&gt;&lt;head&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;charset="UTF-8"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;ejemplo&nbsp;7&lt;/title&gt;
+<br>&lt;/head&gt;&lt;body&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Formularios&nbsp;&amp;&nbsp;inputs&lt;/h2&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Los&nbsp;tipos&nbsp;básicos&nbsp;de&nbsp;input&nbsp;son:&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;texto&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;password:&nbsp;contraseña&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;hidden:&nbsp;texto&nbsp;no&nbsp;visible&nbsp;en&nbsp;pantalla&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;radio:&nbsp;opción&nbsp;múltiple&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;checkbox:&nbsp;opción&nbsp;única&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;select:&nbsp;lista&nbsp;desplegable&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;submit:&nbsp;botón&nbsp;de&nbsp;envío&nbsp;&lt;br&gt;
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Formulario&nbsp;de&nbsp;ejemplo&lt;/h2&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;form&nbsp;method="post"&nbsp;action="ejemplo10b.php"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;Nombre&lt;/label&gt;&lt;input&nbsp;type="text"&nbsp;value=""&nbsp;name="nombre"&gt;&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;Contraseña&lt;/label&gt;&lt;input&nbsp;type="password"&nbsp;value=""&nbsp;name="apellidos"&gt;&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sexo:&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="radio"&nbsp;name="sexo"&nbsp;value="male"&nbsp;checked&gt;&nbsp;Varón&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="radio"&nbsp;name="sexo"&nbsp;value="female"&gt;&nbsp;Mujer&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hobbies:&nbsp;&nbsp;&nbsp;&lt;br&gt;
+<br>&lt;!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OJO:&nbsp;si&nbsp;ponemos&nbsp;el&nbsp;mismo&nbsp;nombre&nbsp;con&nbsp;corchetes&nbsp;recibiremos&nbsp;la&nbsp;opción
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;múltiple&nbsp;como&nbsp;un&nbsp;array.&nbsp;--&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTA:&nbsp;bloque&nbsp;como&nbsp;array&nbsp;&nbsp;(BIEN)&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="checkbox"&nbsp;name="aficion[]"&nbsp;value="deporte"&gt;&nbsp;Hacer&nbsp;deporte&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="checkbox"&nbsp;name="aficion[]"&nbsp;value="musica"&gt;&nbsp;Escuchar&nbsp;música&nbsp;&nbsp;&lt;br&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="checkbox"&nbsp;name="aficion[]"&nbsp;value="musica"&gt;&nbsp;Lectura&nbsp;&nbsp;&lt;br&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="checkbox"&nbsp;name="aficion[]"&nbsp;value="cine"&gt;&nbsp;Ir&nbsp;al&nbsp;cine&nbsp;&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTA:&nbsp;bloque&nbsp;sin&nbsp;array&nbsp;y&nbsp;mismo&nbsp;nombre&nbsp;(MAL)&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="checkbox"&nbsp;name="hobbie"&nbsp;value="musica"&gt;&nbsp;Lectura&nbsp;&nbsp;&lt;br&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="checkbox"&nbsp;name="hobbie"&nbsp;value="cine"&gt;&nbsp;Ir&nbsp;al&nbsp;cine&nbsp;&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTA:&nbsp;bloque&nbsp;sin&nbsp;array&nbsp;y&nbsp;distinto&nbsp;nombre&nbsp;(BIEN)&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="checkbox"&nbsp;name="hobbie1"&nbsp;value="musica"&gt;&nbsp;Lectura&nbsp;&nbsp;&lt;br&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="checkbox"&nbsp;name="hobbie2"&nbsp;value="cine"&gt;&nbsp;Ir&nbsp;al&nbsp;cine&nbsp;&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Elige&nbsp;un&nbsp;color:&nbsp;&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;select&nbsp;name="color"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;optgroup&nbsp;label="Grupo&nbsp;de&nbsp;colores"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;rojo&lt;/option&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;azul&lt;/option&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;verde&lt;/option&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;amarillo&lt;/option&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;selected&gt;blanco&lt;/option&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/optgroup&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/select&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="submit"&nbsp;value="enviar"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/form&gt;
+<br>&lt;/body&gt;&lt;/html&gt;</span>
+</code></div><p class="figura"><a href="http://localhost/introduccionphp/ejemplos/ejemplo10.php">Ejemplo 10</a></p>    <div class="php"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php
+<br></span><span style="color: #FF8000">//aprobechamos&nbsp;para&nbsp;ver&nbsp;un&nbsp;par&nbsp;de&nbsp;funciones&nbsp;para&nbsp;el&nbsp;manejo&nbsp;de&nbsp;variables.
+<br>//isset&nbsp;comprueba&nbsp;si&nbsp;una&nbsp;variable&nbsp;está&nbsp;definida&nbsp;y&nbsp;no&nbsp;es&nbsp;null
+<br>//empty&nbsp;comprueba&nbsp;si&nbsp;una&nbsp;variable&nbsp;contiene&nbsp;algún&nbsp;valor&nbsp;distinto&nbsp;de&nbsp;0&nbsp;o&nbsp;false
+<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'&lt;meta&nbsp;charset="UTF-8"&gt;'</span><span style="color: #007700">;
+<br>if(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;!empty(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">)){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Recibido!!&nbsp;Mira&nbsp;la&nbsp;URL&nbsp;en&nbsp;tu&nbsp;navegador.&nbsp;Está&nbsp;'limpia'&nbsp;&lt;hr&gt;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Bienvenido&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">nombre</span><span style="color: #007700">]</span><span style="color: #DD0000">"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//var_dump&nbsp;nos&nbsp;puede&nbsp;ayudar&nbsp;a&nbsp;entender&nbsp;lo&nbsp;que&nbsp;hemos&nbsp;recibido
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">);
+<br>}
+<br>&nbsp;else&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"No&nbsp;hemos&nbsp;recibido&nbsp;nada!"</span><span style="color: #007700">;
+<br>}
+<br></span>
+</span>
+</code></div><p class="figura"><a href="http://localhost/introduccionphp/ejemplos/ejemplo10b.php">Ejemplo 10b</a></p>
+    <h4>Formulario 3. Enviando cosas a sí mismo</h4>
+    <p>Para terminar con los formularios veamos que podemos enviar y recibir
+    el formulario desde es mismo script</p>
+    <div class="php"><code><span style="color: #000000">
+&lt;!DOCTYPE&nbsp;html&gt;
+<br>&lt;html&gt;&lt;head&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;charset="UTF-8"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;ejemplo&nbsp;7&lt;/title&gt;
+<br>&lt;/head&gt;&lt;body&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Formulario&lt;/h2&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;form&nbsp;method="post"&nbsp;action="ejemplo11.php"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;Nombre&lt;/label&gt;&lt;input&nbsp;type="text"&nbsp;value=""&nbsp;name="nombre"&gt;&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;Contraseña&lt;/label&gt;&lt;input&nbsp;type="password"&nbsp;value=""&nbsp;name="password"&gt;&nbsp;&lt;br&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="submit"&nbsp;value="enviar"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/form&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Datos&nbsp;enviados&lt;/h2&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;!empty(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">)){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Recibido!!&nbsp;Mira&nbsp;la&nbsp;URL&nbsp;en&nbsp;tu&nbsp;navegador.&nbsp;Está&nbsp;'limpia'&nbsp;&lt;hr&gt;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Bienvenido&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">nombre</span><span style="color: #007700">]</span><span style="color: #DD0000">&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">apellidos</span><span style="color: #007700">]</span><span style="color: #DD0000">"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//var_dump&nbsp;nos&nbsp;puede&nbsp;ayudar&nbsp;a&nbsp;entender&nbsp;lo&nbsp;que&nbsp;hemos&nbsp;recibido
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Todavía&nbsp;no&nbsp;hemos&nbsp;recibido&nbsp;nada!"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">?&gt;
+<br></span>&lt;/body&gt;&lt;/html&gt;</span>
+</code></div><p class="figura"><a href="http://localhost/introduccionphp/ejemplos/ejemplo11.php">Ejemplo 11</a></p>
+
+    
+</div></div></body></html>
